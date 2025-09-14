@@ -213,42 +213,42 @@ class WorkbenchLogic extends BaseLogic
     {
         return [
             'summary' => [
-                'total_tasks' => 10,
-                'completed_tasks' => 5,
-                'completion_rate' => 50,
-                'priority_tasks' => 3
+                'total_tasks' => 8,
+                'completed_tasks' => 2,
+                'completion_rate' => 25,
+                'priority_tasks' => 4
             ],
             'categories' => [
                 [
-                    'name' => '功能开发',
+                    'name' => '优先级排期',
                     'tasks' => [
                         [
                             'id' => 1,
-                            'title' => '渠道设置 - 开放平台配置',
-                            'description' => '完成微信开放平台的配置功能',
+                            'title' => '渠道设置 - 开放平台',
+                            'description' => '渠道设置：微信小程序配置✔、公众号菜单管理✔、公众号消息回复逻辑✔、h5设置✔、开放平台TODO',
                             'priority' => 'high',
                             'status' => 'todo',
-                            'progress' => 30,
+                            'progress' => 80,
                             'estimated_hours' => 16,
-                            'dependencies' => ['微信小程序配置', '公众号菜单管理']
+                            'dependencies' => ['微信小程序配置', '公众号菜单管理', 'H5设置']
                         ],
                         [
                             'id' => 2,
                             'title' => '第三方登录 - PC端扫码登录',
-                            'description' => 'PC端微信扫码登录功能，需配合开放平台',
+                            'description' => '第三方登录：微信小程序授权登录✔、H5公众号授权登录✔、PC端扫码登录TODO（需配合开放平台）',
                             'priority' => 'medium',
                             'status' => 'todo',
-                            'progress' => 0,
+                            'progress' => 60,
                             'estimated_hours' => 12,
                             'dependencies' => ['开放平台配置']
                         ],
                         [
                             'id' => 3,
                             'title' => '支付功能 - 支付宝支付',
-                            'description' => '集成支付宝支付接口',
+                            'description' => '钱包充值✔、微信支付（小程序支付✔、公众号/H5付款暂未测试）、支付宝支付TODO',
                             'priority' => 'high',
                             'status' => 'todo',
-                            'progress' => 0,
+                            'progress' => 70,
                             'estimated_hours' => 20,
                             'dependencies' => []
                         ],
@@ -258,19 +258,14 @@ class WorkbenchLogic extends BaseLogic
                             'description' => '完成公众号和H5微信支付的测试验证',
                             'priority' => 'medium',
                             'status' => 'testing',
-                            'progress' => 80,
+                            'progress' => 90,
                             'estimated_hours' => 4,
                             'dependencies' => ['小程序支付']
-                        ]
-                    ]
-                ],
-                [
-                    'name' => '代码优化',
-                    'tasks' => [
+                        ],
                         [
                             'id' => 5,
                             'title' => '模型事件优化',
-                            'description' => '修改全部edit方法，使用模型事件',
+                            'description' => 'fix 修改全部edit方法，使用模型事件',
                             'priority' => 'low',
                             'status' => 'todo',
                             'progress' => 0,
@@ -280,7 +275,7 @@ class WorkbenchLogic extends BaseLogic
                         [
                             'id' => 6,
                             'title' => '代码生成器优化',
-                            'description' => '修改代码生成器的edit方法',
+                            'description' => 'fix 修改代码生成器，edit方法',
                             'priority' => 'low',
                             'status' => 'todo',
                             'progress' => 0,
@@ -300,12 +295,12 @@ class WorkbenchLogic extends BaseLogic
                             'status' => 'todo',
                             'progress' => 0,
                             'estimated_hours' => 8,
-                            'dependencies' => ['PC端扫码登录']
+                            'dependencies' => ['PC端扫码登录功能']
                         ],
                         [
                             'id' => 8,
                             'title' => '管理后台 - 系统设置',
-                            'description' => '系统设置相关API接口完善',
+                            'description' => '管理后台系统设置API接口完善',
                             'priority' => 'medium',
                             'status' => 'in_progress',
                             'progress' => 60,
@@ -327,6 +322,14 @@ class WorkbenchLogic extends BaseLogic
                 [
                     'date' => date('Y-m-d', strtotime('-2 days')),
                     'message' => '完成安装引导UI和Release发行版'
+                ],
+                [
+                    'date' => date('Y-m-d', strtotime('-3 days')),
+                    'message' => '完成安装引导页面测试redis连接'
+                ],
+                [
+                    'date' => date('Y-m-d', strtotime('-4 days')),
+                    'message' => '完成代码生成器功能'
                 ]
             ]
         ];
