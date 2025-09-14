@@ -205,4 +205,131 @@ class WorkbenchLogic extends BaseLogic
         ];
     }
 
+    /**
+     * @notes 未完成的工作列表
+     * @return array
+     */
+    public static function incompleteWork(): array
+    {
+        return [
+            'summary' => [
+                'total_tasks' => 10,
+                'completed_tasks' => 5,
+                'completion_rate' => 50,
+                'priority_tasks' => 3
+            ],
+            'categories' => [
+                [
+                    'name' => '功能开发',
+                    'tasks' => [
+                        [
+                            'id' => 1,
+                            'title' => '渠道设置 - 开放平台配置',
+                            'description' => '完成微信开放平台的配置功能',
+                            'priority' => 'high',
+                            'status' => 'todo',
+                            'progress' => 30,
+                            'estimated_hours' => 16,
+                            'dependencies' => ['微信小程序配置', '公众号菜单管理']
+                        ],
+                        [
+                            'id' => 2,
+                            'title' => '第三方登录 - PC端扫码登录',
+                            'description' => 'PC端微信扫码登录功能，需配合开放平台',
+                            'priority' => 'medium',
+                            'status' => 'todo',
+                            'progress' => 0,
+                            'estimated_hours' => 12,
+                            'dependencies' => ['开放平台配置']
+                        ],
+                        [
+                            'id' => 3,
+                            'title' => '支付功能 - 支付宝支付',
+                            'description' => '集成支付宝支付接口',
+                            'priority' => 'high',
+                            'status' => 'todo',
+                            'progress' => 0,
+                            'estimated_hours' => 20,
+                            'dependencies' => []
+                        ],
+                        [
+                            'id' => 4,
+                            'title' => '微信支付测试 - 公众号/H5付款',
+                            'description' => '完成公众号和H5微信支付的测试验证',
+                            'priority' => 'medium',
+                            'status' => 'testing',
+                            'progress' => 80,
+                            'estimated_hours' => 4,
+                            'dependencies' => ['小程序支付']
+                        ]
+                    ]
+                ],
+                [
+                    'name' => '代码优化',
+                    'tasks' => [
+                        [
+                            'id' => 5,
+                            'title' => '模型事件优化',
+                            'description' => '修改全部edit方法，使用模型事件',
+                            'priority' => 'low',
+                            'status' => 'todo',
+                            'progress' => 0,
+                            'estimated_hours' => 8,
+                            'dependencies' => []
+                        ],
+                        [
+                            'id' => 6,
+                            'title' => '代码生成器优化',
+                            'description' => '修改代码生成器的edit方法',
+                            'priority' => 'low',
+                            'status' => 'todo',
+                            'progress' => 0,
+                            'estimated_hours' => 6,
+                            'dependencies' => []
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'API接口迁移',
+                    'tasks' => [
+                        [
+                            'id' => 7,
+                            'title' => 'PC端 - 扫码登录接口',
+                            'description' => 'PC端扫码登录相关API接口开发',
+                            'priority' => 'medium',
+                            'status' => 'todo',
+                            'progress' => 0,
+                            'estimated_hours' => 8,
+                            'dependencies' => ['PC端扫码登录']
+                        ],
+                        [
+                            'id' => 8,
+                            'title' => '管理后台 - 系统设置',
+                            'description' => '系统设置相关API接口完善',
+                            'priority' => 'medium',
+                            'status' => 'in_progress',
+                            'progress' => 60,
+                            'estimated_hours' => 10,
+                            'dependencies' => []
+                        ]
+                    ]
+                ]
+            ],
+            'recent_updates' => [
+                [
+                    'date' => date('Y-m-d'),
+                    'message' => '完成代码生成器前端UI列表筛选项样式优化'
+                ],
+                [
+                    'date' => date('Y-m-d', strtotime('-1 day')),
+                    'message' => '完成存储引擎配置：本地存储、阿里云、腾讯云、七牛云'
+                ],
+                [
+                    'date' => date('Y-m-d', strtotime('-2 days')),
+                    'message' => '完成安装引导UI和Release发行版'
+                ]
+            ]
+        ];
+    }
+
 }

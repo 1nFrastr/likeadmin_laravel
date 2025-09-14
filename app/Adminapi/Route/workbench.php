@@ -5,4 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(WorkbenchController::class)->group(function () {
     Route::get('/workbench/index', 'index');
+    Route::get('/workbench/incomplete-work', 'incompleteWork');
 });

@@ -17,4 +17,13 @@ class WorkbenchController extends BaseAdminController
         $result = WorkbenchLogic::index();
         return $this->data($result);
     }
+
+    /**
+     * @notes 未完成的工作列表
+     */
+    public function incompleteWork()
+    {
+        $result = WorkbenchLogic::incompleteWork();
+        return $this->data($result);
+    }
 }
